@@ -13,4 +13,5 @@ Playwright JS/TS Automation Testing from Scratch &amp; Framework
 
 
 Playwright → Browser protocol
+
 Selenium → HTTP → Driver → Browser (Automation tool → WebDriver server → Browser)
