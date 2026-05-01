@@ -56,3 +56,58 @@ playwright-project
  ├─ package.json
  ├─ package-lock.json
  └─ .github
+
+import { test, expect } from '@playwright/test';
+Here we are importing test and expect from playwright test
+
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+Here test - we are using the imported test
+'has title' - is the name of the test;
+
+async - async marks the function as asynchronous. Means This function can use "await"
+        This test will perform operations that take time
+
+({ page }) - Give me the page object
+Playwright automatically provides some objects called fixtures.
+One of them is: page
+page represents: a browser tab
+
+| Tool       | Object |
+| ---------- | ------ |
+| Selenium   | driver |
+| Playwright | page   |
+
+=> This is an arrow function in JavaScript.
+Equivalent old syntax:function(page) {
+Modern syntax: (page) => {
+
+
+If JavaScript did NOT use destructuring :- 
+test('has title', async (fixtures) => {
+
+   await fixtures.page.goto('https://playwright.dev')
+})
+
+JavaScript destructuring:
+
+JavaScript allows extracting properties directly from an object.
+Example:
+const obj = { page: "browserPage", context: "ctx" }
+const { page } = obj
+Now page becomes a variable.
+
+Equivalent to:
+page = obj.page 
+
+Advantage over Selenium :
+Playwright already handles lifecycle.
+Each Playwright test gets a fresh browser context.
+
+In large automation frameworks this reduces:
+setup code
+boilerplate
+duplicate code
+flaky tests
+
